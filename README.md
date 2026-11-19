@@ -58,6 +58,7 @@ PLUGINS = {'autoaccept', ...}   # если нужен плагин автопр�
 
 - `0001-fix-double-encoded-sender-name.patch` — при подмене отправителя (`SMTP_ALLOWED_SENDERS`)
   имена с кириллицей кодировались дважды, и в поле «От кого» появлялось `=?utf-8?b?...?=`.
+  Предложено в Indico: [indico/indico#7910](https://github.com/indico/indico/pull/7910).
 
 Если после обновления версии Indico патч перестал применяться (сборка падает на `git apply`),
 скорее всего, исправление уже вошло в Indico — патч можно удалить.
