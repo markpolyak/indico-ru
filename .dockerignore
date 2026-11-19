@@ -1,0 +1,5 @@
+*
+!Dockerfile
+!patches/
+!scripts/
+!fallback-translations/
