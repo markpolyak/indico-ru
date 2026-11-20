@@ -69,7 +69,6 @@ msgstr "Вынести решение"
 
 #: indico/modules/events/papers/client/js/components/GroupReviewForm.jsx
 #: indico/modules/events/templates/reviews/forms.html
-#, needs-review
 msgid "Rating this question is mandatory"
 msgstr "Оценка по этому вопросу обязательна"
 
@@ -85,6 +84,12 @@ msgstr "Оставьте комментарий для отправителя...
 #, needs-review
 msgid "Review"
 msgstr "Рецензирование"
+
+#: indico/modules/events/papers/client/js/components/PaperReviewForm.jsx
+#: indico/modules/events/templates/reviews/_omnibox.html
+#, needs-review
+msgid "Change reviews"
+msgstr "Изменить рецензии"
 
 #: indico/modules/events/abstracts/forms.py
 #: indico/modules/events/persons/client/js/EmailDialog.jsx
@@ -106,35 +111,33 @@ msgstr "Секции"
 #: indico/legacy/pdfinterface/latex_templates/inc/abstract.tex
 #, needs-review
 msgid "Track Reviews:"
-msgstr "Решения по секциям:"
+msgstr "Рецензии по секциям:"
 
 #: indico/legacy/pdfinterface/latex_templates/inc/abstract.tex
-#, needs-review
 msgid "Reviews:"
 msgstr "Рецензии:"
 
 #: indico/legacy/pdfinterface/latex_templates/inc/abstract.tex
-#, needs-review, python-brace-format
+#, python-brace-format
 msgid "Submitted by {0} <{1}> on {2}"
 msgstr "Подано: {0} <{1}>, {2}"
 
 #: indico/modules/events/fields.py
-#, needs-review, python-brace-format
+#, python-brace-format
 msgid "Validation of {email} failed: {error}"
 msgstr "Адрес {email} не прошёл проверку: {error}"
 
 #: indico/modules/events/fields.py
-#, needs-review, python-brace-format
+#, python-brace-format
 msgid "There is already a person with the email {email}"
 msgstr "Человек с адресом электронной почты {email} уже есть"
 
 #: indico/modules/events/fields.py
-#, needs-review, python-brace-format
+#, python-brace-format
 msgid "Person with email '{}' is duplicated"
 msgstr "Человек с адресом электронной почты «{}» указан дважды"
 
 #: indico/modules/events/reviewing_questions_fields.py
-#, needs-review
 msgid "Exclude from score"
 msgstr "Не учитывать в итоговой оценке"
 
@@ -247,12 +250,10 @@ msgid "Make the selection of a contribution type mandatory"
 msgstr "Сделать выбор типа доклада обязательным"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow attachments"
 msgstr "Разрешать прикладывать файлы"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow files to be attached to the abstract"
 msgstr "К тезисам можно будет прикладывать файлы"
 
@@ -265,12 +266,10 @@ msgid "Copy attachments to the contribution when accepting an abstract"
 msgstr "Копировать файлы в доклад при принятии тезисов"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow speakers"
 msgstr "Разрешать указывать докладчиков"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow the selection of the abstract speakers"
 msgstr "В тезисах можно будет указывать докладчиков"
 
@@ -313,7 +312,6 @@ msgid "The event has no contribution types defined."
 msgstr "В мероприятии не заданы типы докладов."
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow track conveners to judge"
 msgstr "Разрешать руководителям секций выносить решения"
 
@@ -322,7 +320,6 @@ msgid "Enabling this allows track conveners to make a judgment such as accepting
 msgstr "Руководители секций смогут выносить решения по тезисам, например принимать или отклонять их."
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow conveners to change tracks"
 msgstr "Разрешать руководителям менять секцию"
 
@@ -339,7 +336,6 @@ msgid "Enabling this makes the track selection mandatory when accepting an abstr
 msgstr "Выбор секции станет обязательным при принятии тезисов. Это не влияет на массовое вынесение решений организаторами."
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow comments"
 msgstr "Разрешать комментарии"
 
@@ -348,7 +344,6 @@ msgid "Enabling this allows judges, conveners and reviewers to leave comments on
 msgstr "Члены комиссии, руководители секций и рецензенты смогут оставлять комментарии к тезисам."
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow contributors in comments"
 msgstr "Разрешать авторам комментировать"
 
@@ -399,7 +394,6 @@ msgid "The generated contribution will be allocated in this session"
 msgstr "Созданный доклад будет помещён в эту сессию"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgctxt "Abstract"
 msgid "Duplicate of"
 msgstr "Дубликат тезисов"
@@ -500,12 +494,10 @@ msgid "Send to submitter"
 msgstr "Отправлять отправителю тезисов"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Send to primary authors"
 msgstr "Отправлять основным авторам"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Send to co-authors"
 msgstr "Отправлять соавторам"
 
@@ -524,7 +516,6 @@ msgid "Only invitation email templates may contain the {placeholder} placeholder
 msgstr "Подстановку {placeholder} могут содержать только шаблоны писем-приглашений"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Invited"
 msgstr "По приглашению"
 
@@ -797,7 +788,6 @@ msgstr[3] "Пропущено тезисов: {num} — они рецензир�
 
 #: indico/modules/events/abstracts/controllers/abstract_list.py
 #: indico/modules/events/papers/controllers/paper.py
-#, needs-review
 msgctxt "Judge abstracts (verb)"
 msgid "Judge"
 msgstr "Вынести решение"
@@ -808,7 +798,7 @@ msgid "Abstract '{}' created successfully"
 msgstr "Тезисы «{}» созданы"
 
 #: indico/modules/events/abstracts/controllers/abstract_list.py
-#, needs-review, python-brace-format
+#, python-brace-format
 msgid "The abstract has been deleted."
 msgid_plural "{count} abstracts have been deleted."
 msgstr[0] "Тезисы удалены."
@@ -817,7 +807,7 @@ msgstr[2] "Удалено тезисов: {count}."
 msgstr[3] "Удалено тезисов: {count}."
 
 #: indico/modules/events/abstracts/controllers/abstract_list.py
-#, needs-review, python-brace-format
+#, python-brace-format
 msgid "The linked contribution has been deleted."
 msgid_plural "{count} linked contributions have been deleted."
 msgstr[0] "Связанный доклад удалён."
@@ -983,7 +973,7 @@ msgid "Log of notifications sent to submitter and authors of this abstract"
 msgstr "Журнал уведомлений, отправленных отправителю и авторам этих тезисов"
 
 #: indico/modules/events/abstracts/templates/abstract.html
-#, needs-review, python-format
+#, python-format
 msgid "1 notification sent"
 msgid_plural "%(count)s notifications sent"
 msgstr[0] "Отправлено уведомление"
@@ -1622,7 +1612,7 @@ msgstr[2] "Возможные секции назначения: %(tracks)s"
 msgstr[3] "Возможные секции назначения: %(tracks)s"
 
 #: indico/modules/events/abstracts/templates/reviewing/timeline.html
-#, needs-review, python-format
+#, python-format
 msgid "You can review this abstract in one track"
 msgid_plural "You can review this abstract in %(missing_groups)s tracks"
 msgstr[0] "Вы можете отрецензировать эти тезисы в одной секции"
@@ -1631,7 +1621,7 @@ msgstr[2] "Вы можете отрецензировать эти тезисы 
 msgstr[3] "Вы можете отрецензировать эти тезисы в %(missing_groups)s секциях"
 
 #: indico/modules/events/abstracts/templates/reviewing/timeline.html
-#, needs-review, python-format
+#, python-format
 msgid "You can review this abstract in one more track"
 msgid_plural "You can review this abstract in %(missing_groups)s more tracks"
 msgstr[0] "Вы можете отрецензировать эти тезисы ещё в одной секции"
@@ -1654,17 +1644,14 @@ msgstr "Вы ещё можете изменить своё мнение"
 #: indico/modules/events/contributions/forms.py
 #: indico/modules/events/contributions/templates/management/types_dialog.html
 #: indico/modules/events/registration/forms.py
-#, needs-review
 msgid "Private"
 msgstr "Закрытый доступ"
 
 #: indico/modules/events/contributions/forms.py
-#, needs-review
 msgid "A contribution type with this name already exists"
 msgstr "Тип доклада с таким названием уже существует"
 
 #: indico/modules/events/contributions/forms.py
-#, needs-review
 msgid "Format"
 msgstr "Формат"
 
@@ -1681,7 +1668,6 @@ msgid "At least one event is already in a different series."
 msgstr "Как минимум одно мероприятие уже входит в другую серию."
 
 #: indico/modules/events/surveys/fields/choices.py indico/web/fields/choices.py
-#, needs-review
 msgid "No selection"
 msgstr "Не выбрано"
 
@@ -1692,47 +1678,40 @@ msgid "edited"
 msgstr "изменён"
 
 #: indico/modules/events/templates/reviews/_common.html
-#, needs-review, python-format
+#, python-format
 msgid "Score: %(score)s / %(max_score)s"
 msgstr "Оценка: %(score)s из %(max_score)s"
 
 #: indico/modules/events/templates/reviews/_common.html
-#, needs-review
 msgid "The submission period has ended."
 msgstr "Подача завершена."
 
 #: indico/modules/events/templates/reviews/_common.html
-#, needs-review
 msgid "The submission period is open until the submission deadline."
 msgstr "Подача открыта до окончания срока."
 
 #: indico/modules/events/templates/reviews/_common.html
-#, needs-review
 msgid "The submission period is open. No submission deadline is set."
 msgstr "Подача открыта. Срок окончания не установлен."
 
 #: indico/modules/events/templates/reviews/_common.html
-#, needs-review
 msgid "The submission period has not yet opened."
 msgstr "Подача ещё не открыта."
 
 #: indico/modules/events/templates/reviews/_omnibox.html
-#, needs-review
 msgid "Already reviewed"
 msgstr "Рецензия уже есть"
 
 #: indico/modules/events/templates/reviews/timeline.html
-#, needs-review, python-format
+#, python-format
 msgid "score %(pretty_score)s"
 msgstr "оценка %(pretty_score)s"
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "option"
 msgstr "вариант"
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "Specify the answers the user can select"
 msgstr "Укажите варианты ответа, из которых пользователь будет выбирать"
 
@@ -1742,9 +1721,8 @@ msgid "Minimum choices"
 msgstr "Минимум вариантов"
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "The minimum amount of options the user has to choose."
-msgstr "Сколько вариантов пользователь должен выбрать как минимум."
+msgstr "Минимальное количество вариантов, которые пользователь должен выбрать."
 
 #: indico/web/fields/choices.py
 #, needs-review
@@ -1752,27 +1730,23 @@ msgid "Maximum choices"
 msgstr "Максимум вариантов"
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "The maximum amount of options the user may choose."
-msgstr "Сколько вариантов пользователь может выбрать как максимум."
+msgstr "Максимальное количество вариантов, которое может выбрать пользователь."
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "Maximum choices must be greater than minimum choices."
 msgstr "Максимум вариантов должен быть больше минимума."
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "Minimum choices must be fewer than the total number of options."
 msgstr "Минимум вариантов должен быть меньше общего числа вариантов."
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "Maximum choices must be fewer or equal than the total number of options."
 msgstr "Максимум вариантов не может превышать общее число вариантов."
 
 #: indico/web/fields/choices.py
-#, needs-review, python-format
+#, python-format
 msgid "Please select at least %(min)d option."
 msgid_plural "Please select at least %(min)d options."
 msgstr[0] "Выберите хотя бы %(min)d вариант."
@@ -1781,31 +1755,28 @@ msgstr[2] "Выберите хотя бы %(min)d вариантов."
 msgstr[3] "Выберите хотя бы %(min)d варианта."
 
 #: indico/web/fields/choices.py
-#, needs-review, python-format
+#, python-format
 msgid "Please select no more than %(max)d option."
 msgid_plural "Please select no more than %(max)d options."
 msgstr[0] "Выберите не более %(max)d варианта."
 msgstr[1] "Выберите не более %(max)d вариантов."
 msgstr[2] "Выберите не более %(max)d вариантов."
-msgstr[3] "Выберите не более %(max)d варианта."
+msgstr[3] "Выберите не более %(max)d вариантов."
 
 #: indico/web/fields/choices.py
-#, needs-review, python-format
+#, python-format
 msgid "Please select between %(min)d and %(max)d options."
 msgstr "Выберите от %(min)d до %(max)d вариантов."
 
 #: indico/web/fields/simple.py
-#, needs-review
 msgid "Min value"
 msgstr "Мин. значение"
 
 #: indico/web/fields/simple.py
-#, needs-review
 msgid "Max value"
 msgstr "Макс. значение"
 
 #: indico/web/fields/simple.py
-#, needs-review
 msgid "The min value must be less than the max value."
 msgstr "Минимальное значение должно быть меньше максимального."
 
