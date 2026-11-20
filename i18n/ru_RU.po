@@ -1,0 +1,41 @@
+# Russian (Russia) translations for Indico.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the Indico project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+# Translators:
+# Алексей Вадимович Михайлов, 2024
+# Ajob Kustra, 2025
+# Mark Polyak, 2025
+# Arsenii Galimov, 2026
+# Vsevolod, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: Indico 3.3.13-dev\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-08-17 13:00+0200\n"
+"PO-Revision-Date: 2024-12-12 10:20+0000\n"
+"Last-Translator: Vsevolod, 2026\n"
+"Language: ru_RU\n"
+"Language-Team: Russian (Russia) (https://app.transifex.com/indico/teams/6478/ru_RU/)\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: indico/modules/events/series/controllers.py
+#, needs-review
+msgid "You can only manage a series if you can manage all its events."
+msgstr "Управлять серией можно, только если вы можете управлять всеми её мероприятиями."
+
+#: indico/modules/events/series/schemas.py
+#, needs-review
+msgid "At least one event is already in a series."
+msgstr "Как минимум одно мероприятие уже входит в серию."
+
+#: indico/modules/events/series/schemas.py
+#, needs-review
+msgid "At least one event is already in a different series."
+msgstr "Как минимум одно мероприятие уже входит в другую серию."
+

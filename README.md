@@ -54,6 +54,25 @@ PLUGINS = {'autoaccept', ...}   # если нужен плагин автопр�
 `AUTOACCEPT_SRC` — источник плагина (git-URL с тегом или локальный каталог),
 `TX_REFRESH=0` — не скачивать перевод заново (взять из кеша сборки).
 
+## Перевод
+
+Перевод с Transifex дополняется **слоем** [`i18n/ru_RU.po`](i18n/ru_RU.po): строки, которые мы
+перевели или исправили. При сборке слой накладывается поверх свежего перевода с Transifex, а
+вычитанные строки постепенно загружаются обратно на Transifex. Термины и стиль —
+[`GLOSSARY.md`](GLOSSARY.md), автоматические проверки — [`i18n/rules.tsv`](i18n/rules.tsv).
+
+```sh
+python i18n/rutool.py fetch            # скачать перевод с Transifex (токен в ~/.indico-tx-token)
+python i18n/rutool.py status --modules # что переведено, что в слое
+python i18n/rutool.py extract --module events/abstracts --state untranslated -o batch.po
+python i18n/rutool.py apply batch.po   # внести переведённую порцию в слой (с пометкой needs-review)
+python i18n/rutool.py check            # проверить слой (--all — весь каталог)
+python i18n/rutool.py export -o upload.po  # файл для загрузки на Transifex (только вычитанное)
+python i18n/rutool.py prune            # убрать из слоя то, что уже есть на Transifex
+```
+
+Нужен Python с `babel` и `msgfmt` (gettext).
+
 ## Патчи
 
 - `0001-fix-double-encoded-sender-name.patch` — при подмене отправителя (`SMTP_ALLOWED_SENDERS`)

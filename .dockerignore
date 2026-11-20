@@ -3,3 +3,5 @@
 !patches/
 !scripts/
 !fallback-translations/
+!i18n/rutool.py
+!i18n/ru_RU.po

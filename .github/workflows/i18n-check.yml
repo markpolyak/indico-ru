@@ -1,0 +1,19 @@
+name: Check translation layer
+
+on:
+  push:
+    paths: ['i18n/**']
+  pull_request:
+    paths: ['i18n/**']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get install -y gettext && pip install 'babel>=2.11'
+      # только ошибки (плейсхолдеры, разметка, формы, msgfmt, термины уровня error); предупреждения — локально
+      - run: python i18n/rutool.py check --errors-only

@@ -44,6 +44,9 @@ RUN --mount=type=secret,id=tx_token,required=false \
     if [ -s /run/secrets/tx_token ]; then \
         export TX_TOKEN="$(cat /run/secrets/tx_token)"; indico i18n pull indico ru_RU && echo 'ru_RU: Transifex'; \
     else echo 'ru_RU: fallback (снимок перевода)'; fi
+# Наш слой перевода (i18n/ru_RU.po) поверх перевода с Transifex — см. i18n/rutool.py
+COPY i18n/rutool.py i18n/ru_RU.po /opt/i18n/
+RUN python /opt/i18n/rutool.py merge /opt/i18n/ru_RU.po indico/translations/ru_RU/LC_MESSAGES/messages-all.po
 RUN indico i18n compile indico && \
     python ./bin/maintenance/update_moment_locales.py && \
     grep -q "moment/locale/ru'" indico/web/client/js/jquery/index.js && \
