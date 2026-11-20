@@ -81,9 +81,8 @@ msgstr "Оставьте комментарий для отправителя...
 #: indico/modules/events/abstracts/__init__.py
 #: indico/modules/events/papers/client/js/components/PaperReviewForm.jsx
 #: indico/modules/events/templates/reviews/_omnibox.html
-#, needs-review
 msgid "Review"
-msgstr "Рецензирование"
+msgstr "Рецензировать"
 
 #: indico/modules/events/papers/client/js/components/PaperReviewForm.jsx
 #: indico/modules/events/templates/reviews/_omnibox.html
@@ -98,13 +97,7 @@ msgid "Attachments"
 msgstr "Файлы"
 
 #: indico/legacy/pdfinterface/latex_templates/inc/abstract.tex
-#, needs-review
-msgid "Abstract ID"
-msgstr "Номер тезисов"
-
-#: indico/legacy/pdfinterface/latex_templates/inc/abstract.tex
 #: indico/legacy/pdfinterface/latex_templates/inc/contribution.tex
-#, needs-review
 msgid "Track Classification"
 msgstr "Секции"
 
@@ -220,16 +213,14 @@ msgid "Their email addresses will be published in the Book of Abstracts."
 msgstr "Их адреса электронной почты будут опубликованы в сборнике тезисов."
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Show abstract IDs"
-msgstr "Показывать номера тезисов"
+msgstr "Показывать ID тезисов"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Multiple tracks"
 msgstr "Несколько секций"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow the selection of multiple tracks"
 msgstr "Можно будет выбрать несколько секций"
 
@@ -282,9 +273,8 @@ msgid "Make the selection of at least one author as speaker mandatory"
 msgstr "Сделать обязательным выбор хотя бы одного автора в качестве докладчика"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Allow editing"
-msgstr "Право редактирования"
+msgstr "Кто может редактировать"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Contribution submitters"
@@ -412,9 +402,8 @@ msgid "The current abstract will be merged into the selected one"
 msgstr "Текущие тезисы будут объединены с выбранными"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Merge persons"
-msgstr "Перенести авторов и докладчиков"
+msgstr "Добавить авторов и докладчиков"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Authors and speakers of the current abstract will be added to the selected one"
@@ -489,17 +478,16 @@ msgid "\"Reply to\" address"
 msgstr "Адрес для ответа (Reply-To)"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Send to submitter"
-msgstr "Отправлять отправителю тезисов"
+msgstr "Направлять отправителю тезисов"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Send to primary authors"
-msgstr "Отправлять основным авторам"
+msgstr "Направлять основным авторам"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Send to co-authors"
-msgstr "Отправлять соавторам"
+msgstr "Направлять соавторам"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Additional CC e-mail addresses (one per line)"
@@ -536,7 +524,6 @@ msgid "No type selected"
 msgstr "Тип не выбран"
 
 #: indico/modules/events/abstracts/forms.py
-#, needs-review
 msgid "Send email notifications"
 msgstr "Отправить уведомления по электронной почте"
 
@@ -666,29 +653,28 @@ msgid "The URL of the contribution"
 msgstr "Ссылка на доклад"
 
 #: indico/modules/events/abstracts/placeholders.py
-#, needs-review
 msgid "The ID of the target abstract (merge or duplicate)"
-msgstr "ID целевых тезисов (при объединении или дубликате)"
+msgstr "ID тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
 #, needs-review
 msgid "The title of the target abstract (merge or duplicate)"
-msgstr "Название целевых тезисов (при объединении или дубликате)"
+msgstr "Название тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
 #, needs-review
 msgid "The full name of the target abstract's submitter, no title (merge or duplicate)"
-msgstr "Полное имя отправителя целевых тезисов, без звания (при объединении или дубликате)"
+msgstr "Полное имя (без звания) отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
 #, needs-review
 msgid "The first name of the target abstract's submitter (merge or duplicate)"
-msgstr "Имя отправителя целевых тезисов (при объединении или дубликате)"
+msgstr "Имя отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
 #, needs-review
 msgid "The last name of the target abstract's submitter (merge or duplicate)"
-msgstr "Фамилия отправителя целевых тезисов (при объединении или дубликате)"
+msgstr "Фамилия отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
 msgid "Comments written by event organizer (upon final decision)"
@@ -932,22 +918,18 @@ msgid "In progress"
 msgstr "В процессе"
 
 #: indico/modules/events/abstracts/models/abstracts.py
-#, needs-review
 msgid "Positive"
 msgstr "Положительное"
 
 #: indico/modules/events/abstracts/models/abstracts.py
-#, needs-review
 msgid "Conflicting"
 msgstr "Противоречивое"
 
 #: indico/modules/events/abstracts/models/abstracts.py
-#, needs-review
 msgid "Negative"
 msgstr "Отрицательное"
 
 #: indico/modules/events/abstracts/models/abstracts.py
-#, needs-review
 msgid "Mixed"
 msgstr "Смешанное"
 
@@ -1248,7 +1230,6 @@ msgid "This rule will never match as the track has been deleted."
 msgstr "Это правило никогда не сработает, так как секция удалена."
 
 #: indico/modules/events/abstracts/templates/management/_notification_tpl_list.html
-#, needs-review
 msgid "deleted"
 msgstr "удалена"
 
@@ -1672,7 +1653,6 @@ msgid "No selection"
 msgstr "Не выбрано"
 
 #: indico/modules/events/templates/reviews/_common.html
-#, needs-review
 msgctxt "Review comment"
 msgid "edited"
 msgstr "изменён"
@@ -1716,22 +1696,20 @@ msgid "Specify the answers the user can select"
 msgstr "Укажите варианты ответа, из которых пользователь будет выбирать"
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "Minimum choices"
-msgstr "Минимум вариантов"
+msgstr "Минимальное количество вариантов"
 
 #: indico/web/fields/choices.py
 msgid "The minimum amount of options the user has to choose."
 msgstr "Минимальное количество вариантов, которые пользователь должен выбрать."
 
 #: indico/web/fields/choices.py
-#, needs-review
 msgid "Maximum choices"
-msgstr "Максимум вариантов"
+msgstr "Максимальное количество вариантов"
 
 #: indico/web/fields/choices.py
 msgid "The maximum amount of options the user may choose."
-msgstr "Максимальное количество вариантов, которое может выбрать пользователь."
+msgstr "Максимальное количество вариантов, которые может выбрать пользователь."
 
 #: indico/web/fields/choices.py
 msgid "Maximum choices must be greater than minimum choices."
