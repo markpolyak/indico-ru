@@ -168,6 +168,14 @@ def placeholders(s):
     return collections.Counter([p for p in PY_FMT.findall(s) if p != '%%'] + BRACE.findall(s))
 
 
+# как indico/cli/i18n.py: _extract_placeholders (сравниваются множества)
+INDICO_PH = re.compile(r'\{[^}]*\}|%\([^)]+\)[sdf]')
+
+
+def indico_placeholders(s):
+    return set(INDICO_PH.findall(s))
+
+
 def tags(s):
     return collections.Counter(m.group(0).split()[0].rstrip('>').lower() for m in TAG.finditer(s))
 
@@ -200,17 +208,18 @@ def check_message(msg, nplurals, rules):
     for i, s in enumerate(dst):
         if not s:
             continue
-        ref = src[0] if not plural or i == 0 and nplurals == 1 else src[-1]
-        want, got = placeholders(ref), placeholders(s)
-        if plural:
-            # формы могут опускать числовой плейсхолдер только если он единственный и это не форма 0
-            # (форма 0 используется и для 21, 31, ... — без числа нельзя)
-            want_set, got_set = set(want), set(got)
-            if not got_set <= set(placeholders(src[0])) | want_set:
-                out.append(('error', f'форма {i}: лишние плейсхолдеры {sorted(got_set - want_set)}'))
-            if want_set - got_set:
-                out.append(('error', f'форма {i}: нет плейсхолдеров {sorted(want_set - got_set)}'))
-        elif want != got:
+        # как в Indico (_iter_msg_pairs): форма 0 сверяется с msgid, остальные — с msgid_plural
+        ref = src[0] if not plural or i == 0 and nplurals > 1 else src[-1]
+        # Правило `indico i18n compile` — при нарушении сборка образа падает. В форме 0 должны быть
+        # ровно плейсхолдеры msgid: если в «1 file» числа нет, то и в форме 0 его быть не может,
+        # хотя по-русски она используется и для 21, 31, … (msgfmt -c требует обратного).
+        iw, ig = indico_placeholders(ref), indico_placeholders(s)
+        if iw != ig:
+            where = f'форма {i}: ' if plural else ''
+            out.append(('error', f'{where}плейсхолдеры (правило Indico): в оригинале {sorted(iw)}, '
+                                 f'в переводе {sorted(ig)}'))
+        elif not plural and placeholders(ref) != placeholders(s):
+            want, got = placeholders(ref), placeholders(s)
             out.append(('error', f'плейсхолдеры: в оригинале {sorted(want.elements())}, в переводе {sorted(got.elements())}'))
         if tags(ref) != tags(s):
             out.append(('error', f'разметка различается: {sorted(tags(ref).elements())} → {sorted(tags(s).elements())}'))
@@ -238,9 +247,11 @@ def msgfmt_check(catalog):
         po = Path(tmp) / 'c.po'
         save(catalog, po)
         r = subprocess.run(['msgfmt', '-c', '-o', os.devnull, str(po)], capture_output=True, text=True)
-        # {x}…{/x} — синтаксис react-jsx-i18n, msgfmt его не понимает
+        # {x}…{/x} — синтаксис react-jsx-i18n, msgfmt его не понимает.
+        # «…doesn't exist in 'msgstr[0]'» — форма 0 без числа: этого требует Indico (см. check_message)
         lines = [ln for ln in r.stderr.splitlines()
-                 if 'fatal error' not in ln and "'/' cannot start a field name" not in ln]
+                 if 'fatal error' not in ln and "'/' cannot start a field name" not in ln
+                 and "doesn't exist in 'msgstr[0]'" not in ln]
         if not lines:
             return []
         # сопоставить номера строк с msgid

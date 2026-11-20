@@ -11,7 +11,9 @@ AUTOACCEPT_SRC="${AUTOACCEPT_SRC:-https://github.com/markpolyak/indico-plugin-au
 # На Docker Desktop используем его builder (с кешем), если он есть
 BUILDER="${BUILDER-$(docker buildx inspect desktop-linux >/dev/null 2>&1 && echo desktop-linux)}"
 SECRET_ARGS=()
-# TX_REFRESH=0 — не скачивать перевод заново (взять из кеша); полезно, если менялся только плагин
+# TX_REFRESH=0 — не скачивать перевод заново (взять из кеша); полезно, если менялся только плагин.
+# Осторожно: берётся кеш прошлой сборки с TX_REFRESH=0, а он может быть сколь угодно старым —
+# смотрите в логе «из слоя применено N строк; нет в каталоге: M» (M > 0 — каталог устарел).
 if [ -s "$HOME/.indico-tx-token" ]; then
     SECRET_ARGS=(--secret id=tx_token,src="$HOME/.indico-tx-token")
     [ "${TX_REFRESH:-1}" != 0 ] && SECRET_ARGS+=(--build-arg TX_PULL_ID="$(date +%s)")
