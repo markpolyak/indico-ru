@@ -118,6 +118,21 @@ msgstr "Рецензии:"
 msgid "Submitted by {0} <{1}> on {2}"
 msgstr "Подано: {0} <{1}>, {2}"
 
+#: indico/modules/events/fields.py
+#, needs-review, python-brace-format
+msgid "Validation of {email} failed: {error}"
+msgstr "Адрес {email} не прошёл проверку: {error}"
+
+#: indico/modules/events/fields.py
+#, needs-review, python-brace-format
+msgid "There is already a person with the email {email}"
+msgstr "Человек с адресом электронной почты {email} уже есть"
+
+#: indico/modules/events/fields.py
+#, needs-review, python-brace-format
+msgid "Person with email '{}' is duplicated"
+msgstr "Человек с адресом электронной почты «{}» указан дважды"
+
 #: indico/modules/events/reviewing_questions_fields.py
 #, needs-review
 msgid "Exclude from score"
@@ -313,7 +328,7 @@ msgstr "Члены комиссии, руководители секций и р
 #: indico/modules/events/abstracts/forms.py
 #, needs-review
 msgid "Allow contributors in comments"
-msgstr "Комментарии от авторов"
+msgstr "Разрешать авторам комментировать"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Enabling this allows submitters, authors, and speakers to also participate in the comments."
@@ -460,17 +475,17 @@ msgstr "Адрес для ответа (Reply-To)"
 #: indico/modules/events/abstracts/forms.py
 #, needs-review
 msgid "Send to submitter"
-msgstr "Отправителю тезисов"
+msgstr "Отправлять отправителю тезисов"
 
 #: indico/modules/events/abstracts/forms.py
 #, needs-review
 msgid "Send to primary authors"
-msgstr "Основным авторам"
+msgstr "Отправлять основным авторам"
 
 #: indico/modules/events/abstracts/forms.py
 #, needs-review
 msgid "Send to co-authors"
-msgstr "Соавторам"
+msgstr "Отправлять соавторам"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Additional CC e-mail addresses (one per line)"
@@ -1613,6 +1628,23 @@ msgstr "Вы уже отрецензировали эти тезисы во вс
 msgid "You can still make up your mind"
 msgstr "Вы ещё можете изменить своё мнение"
 
+#: indico/modules/events/contributions/forms.py
+#: indico/modules/events/contributions/templates/management/types_dialog.html
+#: indico/modules/events/registration/forms.py
+#, needs-review
+msgid "Private"
+msgstr "Закрытый доступ"
+
+#: indico/modules/events/contributions/forms.py
+#, needs-review
+msgid "A contribution type with this name already exists"
+msgstr "Тип доклада с таким названием уже существует"
+
+#: indico/modules/events/contributions/forms.py
+#, needs-review
+msgid "Format"
+msgstr "Формат"
+
 #: indico/modules/events/series/controllers.py
 msgid "You can only manage a series if you can manage all its events."
 msgstr "Управлять серией можно, только если вы можете управлять всеми её мероприятиями."
@@ -1624,6 +1656,11 @@ msgstr "Как минимум одно мероприятие уже входи�
 #: indico/modules/events/series/schemas.py
 msgid "At least one event is already in a different series."
 msgstr "Как минимум одно мероприятие уже входит в другую серию."
+
+#: indico/modules/events/surveys/fields/choices.py indico/web/fields/choices.py
+#, needs-review
+msgid "No selection"
+msgstr "Не выбрано"
 
 #: indico/modules/events/templates/reviews/_common.html
 #, needs-review
@@ -1665,4 +1702,87 @@ msgstr "Рецензия уже есть"
 #, needs-review, python-format
 msgid "score %(pretty_score)s"
 msgstr "оценка %(pretty_score)s"
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "option"
+msgstr "вариант"
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "Specify the answers the user can select"
+msgstr "Укажите варианты ответа, из которых пользователь будет выбирать"
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "Minimum choices"
+msgstr "Минимум вариантов"
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "The minimum amount of options the user has to choose."
+msgstr "Сколько вариантов пользователь должен выбрать как минимум."
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "Maximum choices"
+msgstr "Максимум вариантов"
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "The maximum amount of options the user may choose."
+msgstr "Сколько вариантов пользователь может выбрать как максимум."
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "Maximum choices must be greater than minimum choices."
+msgstr "Максимум вариантов должен быть больше минимума."
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "Minimum choices must be fewer than the total number of options."
+msgstr "Минимум вариантов должен быть меньше общего числа вариантов."
+
+#: indico/web/fields/choices.py
+#, needs-review
+msgid "Maximum choices must be fewer or equal than the total number of options."
+msgstr "Максимум вариантов не может превышать общее число вариантов."
+
+#: indico/web/fields/choices.py
+#, needs-review, python-format
+msgid "Please select at least %(min)d option."
+msgid_plural "Please select at least %(min)d options."
+msgstr[0] "Выберите хотя бы %(min)d вариант."
+msgstr[1] "Выберите хотя бы %(min)d варианта."
+msgstr[2] "Выберите хотя бы %(min)d вариантов."
+msgstr[3] "Выберите хотя бы %(min)d варианта."
+
+#: indico/web/fields/choices.py
+#, needs-review, python-format
+msgid "Please select no more than %(max)d option."
+msgid_plural "Please select no more than %(max)d options."
+msgstr[0] "Выберите не более %(max)d варианта."
+msgstr[1] "Выберите не более %(max)d вариантов."
+msgstr[2] "Выберите не более %(max)d вариантов."
+msgstr[3] "Выберите не более %(max)d варианта."
+
+#: indico/web/fields/choices.py
+#, needs-review, python-format
+msgid "Please select between %(min)d and %(max)d options."
+msgstr "Выберите от %(min)d до %(max)d вариантов."
+
+#: indico/web/fields/simple.py
+#, needs-review
+msgid "Min value"
+msgstr "Мин. значение"
+
+#: indico/web/fields/simple.py
+#, needs-review
+msgid "Max value"
+msgstr "Макс. значение"
+
+#: indico/web/fields/simple.py
+#, needs-review
+msgid "The min value must be less than the max value."
+msgstr "Минимальное значение должно быть меньше максимального."
 
