@@ -217,12 +217,18 @@ msgid "Their email addresses will be published in the Book of Abstracts."
 msgstr "Их адреса электронной почты будут опубликованы в сборнике тезисов."
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
+msgid "Show abstract IDs"
+msgstr "Показывать номера тезисов"
+
+#: indico/modules/events/abstracts/forms.py
 msgid "Multiple tracks"
 msgstr "Несколько секций"
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
 msgid "Allow the selection of multiple tracks"
-msgstr "Разрешить выбор нескольких секций"
+msgstr "Можно будет выбрать несколько секций"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Require tracks"
@@ -241,12 +247,14 @@ msgid "Make the selection of a contribution type mandatory"
 msgstr "Сделать выбор типа доклада обязательным"
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
 msgid "Allow attachments"
-msgstr "Разрешить файлы"
+msgstr "Разрешать прикладывать файлы"
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
 msgid "Allow files to be attached to the abstract"
-msgstr "Разрешить прикладывать файлы к тезисам"
+msgstr "К тезисам можно будет прикладывать файлы"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Copy attachments"
@@ -257,8 +265,14 @@ msgid "Copy attachments to the contribution when accepting an abstract"
 msgstr "Копировать файлы в доклад при принятии тезисов"
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
+msgid "Allow speakers"
+msgstr "Разрешать указывать докладчиков"
+
+#: indico/modules/events/abstracts/forms.py
+#, needs-review
 msgid "Allow the selection of the abstract speakers"
-msgstr "Разрешить указывать докладчиков в тезисах"
+msgstr "В тезисах можно будет указывать докладчиков"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Require a speaker"
@@ -267,6 +281,11 @@ msgstr "Докладчик обязателен"
 #: indico/modules/events/abstracts/forms.py
 msgid "Make the selection of at least one author as speaker mandatory"
 msgstr "Сделать обязательным выбор хотя бы одного автора в качестве докладчика"
+
+#: indico/modules/events/abstracts/forms.py
+#, needs-review
+msgid "Allow editing"
+msgstr "Право редактирования"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Contribution submitters"
@@ -294,16 +313,18 @@ msgid "The event has no contribution types defined."
 msgstr "В мероприятии не заданы типы докладов."
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
 msgid "Allow track conveners to judge"
-msgstr "Разрешить руководителям секций выносить решения"
+msgstr "Разрешать руководителям секций выносить решения"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Enabling this allows track conveners to make a judgment such as accepting or rejecting an abstract."
 msgstr "Руководители секций смогут выносить решения по тезисам, например принимать или отклонять их."
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
 msgid "Allow conveners to change tracks"
-msgstr "Разрешить руководителям менять секцию"
+msgstr "Разрешать руководителям менять секцию"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Enabling this allows track conveners to update the track an abstract is part of."
@@ -318,8 +339,9 @@ msgid "Enabling this makes the track selection mandatory when accepting an abstr
 msgstr "Выбор секции станет обязательным при принятии тезисов. Это не влияет на массовое вынесение решений организаторами."
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
 msgid "Allow comments"
-msgstr "Разрешить комментарии"
+msgstr "Разрешать комментарии"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "Enabling this allows judges, conveners and reviewers to leave comments on abstracts."
@@ -523,8 +545,9 @@ msgid "No type selected"
 msgstr "Тип не выбран"
 
 #: indico/modules/events/abstracts/forms.py
+#, needs-review
 msgid "Send email notifications"
-msgstr "Отправлять уведомления по электронной почте"
+msgstr "Отправить уведомления по электронной почте"
 
 #: indico/modules/events/abstracts/forms.py
 msgid "You have to create an \"Invited\" abstract notification template in order to be able to create invited abstracts."
@@ -1605,7 +1628,7 @@ msgid_plural "You can review this abstract in %(missing_groups)s tracks"
 msgstr[0] "Вы можете отрецензировать эти тезисы в одной секции"
 msgstr[1] "Вы можете отрецензировать эти тезисы в %(missing_groups)s секциях"
 msgstr[2] "Вы можете отрецензировать эти тезисы в %(missing_groups)s секциях"
-msgstr[3] "Вы можете отрецензировать эти тезисы в %(missing_groups)s секций"
+msgstr[3] "Вы можете отрецензировать эти тезисы в %(missing_groups)s секциях"
 
 #: indico/modules/events/abstracts/templates/reviewing/timeline.html
 #, needs-review, python-format
@@ -1614,7 +1637,7 @@ msgid_plural "You can review this abstract in %(missing_groups)s more tracks"
 msgstr[0] "Вы можете отрецензировать эти тезисы ещё в одной секции"
 msgstr[1] "Вы можете отрецензировать эти тезисы ещё в %(missing_groups)s секциях"
 msgstr[2] "Вы можете отрецензировать эти тезисы ещё в %(missing_groups)s секциях"
-msgstr[3] "Вы можете отрецензировать эти тезисы ещё в %(missing_groups)s секций"
+msgstr[3] "Вы можете отрецензировать эти тезисы ещё в %(missing_groups)s секциях"
 
 #: indico/modules/events/abstracts/templates/reviewing/timeline.html
 msgid "You can do it until a final judgment is casted"
