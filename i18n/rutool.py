@@ -14,6 +14,8 @@
   merge    наложить слой на каталог (используется в Dockerfile)
   export   собрать файл для загрузки на Transifex: каталог Transifex + вычитанные строки слоя
   prune    убрать из слоя строки, которые уже совпадают с Transifex
+  review-items  выгрузить строки, ждущие вычитки, в JSON для страницы вычитки
+  review-apply  применить отметки со страницы вычитки (каталог с JSON-документами reviews/*.json)
 
 Осознанное исключение из правил глоссария/стиля — комментарий переводчика `# rutool: ignore`
 у строки в слое (проверки плейсхолдеров и разметки всё равно выполняются).
@@ -486,6 +488,75 @@ def cmd_prune(args):
     print(f'из слоя убрано {gone} строк')
 
 
+def item_id(msg):
+    import hashlib
+    return hashlib.sha1(((msg.context or '') + '\x04' + ids(msg)[0]).encode()).hexdigest()[:16]
+
+
+def cmd_review_items(args):
+    tx = need_transifex()
+    ov = load_overlay(tx)
+    items = []
+    for m in ov:
+        if not m.id or REVIEW_FLAG not in m.flags:
+            continue
+        if args.module and not module_of(m).startswith(args.module):
+            continue
+        base = tx.get(m.id, m.context)
+        old = list(strings(base)) if base is not None and is_translated(base) else None
+        items.append({'id': item_id(m), 'mod': module_of(m),
+                      'locs': sorted({loc.replace('indico/modules/', '') for loc, _ in m.locations})[:4],
+                      'ctx': m.context, 'en': list(ids(m)), 'ru': list(strings(m)), 'old': old,
+                      'plural': isinstance(m.id, tuple)})
+    Path(args.output).write_text(json.dumps({'batch': args.batch, 'items': items}, ensure_ascii=False))
+    print(f'{args.output}: {len(items)} строк ({sum(i["old"] is None for i in items)} новых)')
+
+
+def cmd_review_apply(args):
+    tx = need_transifex()
+    ov = load_overlay(tx)
+    by_id = {item_id(m): m for m in ov if m.id}
+    rules = load_rules()
+    stat = collections.Counter()
+    questions = []
+    for f in sorted(Path(args.dir).rglob('*.json')):
+        doc = json.loads(f.read_text())
+        doc = doc.get('data', doc)
+        m = by_id.get(f.stem)
+        if m is None:
+            stat['нет в слое'] += 1
+            continue
+        if list(doc.get('shown') or []) != list(strings(m)):
+            stat['перевод изменился после отметки — пропущено'] += 1
+            continue
+        st = doc.get('status')
+        if st == 'ok':
+            if REVIEW_FLAG in m.flags:
+                m.flags.discard(REVIEW_FLAG)
+                stat['принято'] += 1
+        elif st == 'fix':
+            new = copy.deepcopy(m)
+            new.string = tuple(doc['ru']) if isinstance(m.id, tuple) else doc['ru'][0]
+            errs = [t for lvl, t in check_message(new, tx.num_plurals, rules) if lvl == 'error']
+            if errs and not args.force:
+                questions.append((m, 'исправление не прошло проверку: ' + '; '.join(errs) + f' — {doc["ru"]}'))
+                stat['исправление с ошибкой — пропущено'] += 1
+                continue
+            m.string = new.string
+            m.flags.discard(REVIEW_FLAG)
+            if doc.get('note'):
+                questions.append((m, 'комментарий к исправлению: ' + doc['note']))
+            stat['исправлено'] += 1
+        elif st == 'question':
+            questions.append((m, doc.get('note', '')))
+            stat['вопрос'] += 1
+    save(ov, OVERLAY)
+    for k, v in stat.items():
+        print(f'{k}: {v}')
+    for m, q in questions:
+        print(f'\n? {ids(m)[0][:80]!r}\n  → {strings(m)[0][:100]!r}\n  {q}')
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest='cmd', required=True)
@@ -522,6 +593,15 @@ def main():
     s = sub.add_parser('prune')
     s.add_argument('--missing', action='store_true', help='также строки, которых больше нет на Transifex')
     s.set_defaults(func=cmd_prune)
+    s = sub.add_parser('review-items')
+    s.add_argument('-o', '--output', required=True)
+    s.add_argument('--batch', default='Вычитка')
+    s.add_argument('--module')
+    s.set_defaults(func=cmd_review_items)
+    s = sub.add_parser('review-apply')
+    s.add_argument('dir')
+    s.add_argument('--force', action='store_true')
+    s.set_defaults(func=cmd_review_apply)
     args = p.parse_args()
     args.func(args)
 
