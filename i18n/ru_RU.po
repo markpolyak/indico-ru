@@ -86,7 +86,6 @@ msgstr "Рецензировать"
 
 #: indico/modules/events/papers/client/js/components/PaperReviewForm.jsx
 #: indico/modules/events/templates/reviews/_omnibox.html
-#, needs-review
 msgid "Change reviews"
 msgstr "Изменить рецензии"
 
@@ -102,7 +101,6 @@ msgid "Track Classification"
 msgstr "Секции"
 
 #: indico/legacy/pdfinterface/latex_templates/inc/abstract.tex
-#, needs-review
 msgid "Track Reviews:"
 msgstr "Рецензии по секциям:"
 
@@ -657,22 +655,18 @@ msgid "The ID of the target abstract (merge or duplicate)"
 msgstr "ID тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
-#, needs-review
 msgid "The title of the target abstract (merge or duplicate)"
 msgstr "Название тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
-#, needs-review
 msgid "The full name of the target abstract's submitter, no title (merge or duplicate)"
 msgstr "Полное имя (без звания) отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
-#, needs-review
 msgid "The first name of the target abstract's submitter (merge or duplicate)"
 msgstr "Имя отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
-#, needs-review
 msgid "The last name of the target abstract's submitter (merge or duplicate)"
 msgstr "Фамилия отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
@@ -1635,6 +1629,10 @@ msgstr "Тип доклада с таким названием уже сущес
 #: indico/modules/events/contributions/forms.py
 msgid "Format"
 msgstr "Формат"
+
+#: indico/modules/events/contributions/models/fields.py
+msgid "Only managers"
+msgstr "Только организаторы"
 
 #: indico/modules/events/series/controllers.py
 msgid "You can only manage a series if you can manage all its events."
