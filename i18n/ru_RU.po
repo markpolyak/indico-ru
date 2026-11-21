@@ -635,8 +635,9 @@ msgid "The full name of the submitter, no title"
 msgstr "Полное имя отправителя, без звания"
 
 #: indico/modules/events/abstracts/placeholders.py
+#, needs-review
 msgid "The first name of the submitter"
-msgstr "Имя отправителя"
+msgstr "Имя и отчество отправителя"
 
 #: indico/modules/events/abstracts/placeholders.py
 msgid "The last name of the submitter"
@@ -663,8 +664,9 @@ msgid "The full name of the target abstract's submitter, no title (merge or dupl
 msgstr "Полное имя (без звания) отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
+#, needs-review
 msgid "The first name of the target abstract's submitter (merge or duplicate)"
-msgstr "Имя отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
+msgstr "Имя и отчество отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
 #: indico/modules/events/abstracts/placeholders.py
 msgid "The last name of the target abstract's submitter (merge or duplicate)"

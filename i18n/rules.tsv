@@ -20,7 +20,8 @@ warn	[Аа]втор-отправител	\bsubmitters?\b	submitter → «отп�
 warn	[Пп]ользовательск\w+ пол	\bcustom fields?\b	custom field → «дополнительное поле»
 warn	[Сс]овещани|[Вв]стреч[аиуе]\b	\bmeetings?\b	meeting → «семинар»
 warn	[Сс]боры\b|[Сс]бор\b	\bfee\b	fee → «взнос»
-warn	[Оо]тчеств	\bfirst name\b	First name → «Имя» (без отчества)
+warn	Имя и Отчество|имя и Отчество		отчество — со строчной: «Имя и отчество»
+warn	^Имя\b(?! и [Оо]тчество)	^first name\b|^given name\b	First name → «Имя и отчество» (отдельного поля для отчества нет)
 warn	[Ee]-?mail[- ]адрес|[Ee]-mail\b		email → «электронная почта», «адрес электронной почты»
 warn	[Мм]инут\w*	\bminutes\b(?!.*\b(hour|min|time|duration|before|after)\b)	minutes (протокол) → «протокол»; проверить, не время ли это
 # --- стиль
