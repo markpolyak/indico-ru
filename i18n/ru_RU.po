@@ -25,12 +25,10 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 
 #: indico/modules/events/abstracts/placeholders.py
-#, needs-review
 msgid "The first name of the submitter"
 msgstr "Имя и отчество отправителя"
 
 #: indico/modules/events/abstracts/placeholders.py
-#, needs-review
 msgid "The first name of the target abstract's submitter (merge or duplicate)"
 msgstr "Имя и отчество отправителя тезисов, с которыми объединены эти тезисы или которые они дублируют"
 
