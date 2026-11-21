@@ -89,7 +89,7 @@ python i18n/rutool.py prune            # убрать из слоя то, что
 
 ```sh
 docker compose pull
-docker compose rm -sf indico-web indico-celery indico-celery-beat indico-nginx
+docker compose rm -sf indico-web indico-celery indico-nginx
 docker volume rm <project>_static-files          # статика старой версии
 docker compose run --rm --no-deps indico-web bash -c 'indico db upgrade && indico db --all-plugins upgrade'
 docker compose up -d
